@@ -1,0 +1,86 @@
+✅ Core Features for the Bible App:
+Bible Navigation
+
+Select Book, Chapter, and Verse
+
+Scrollable or searchable lists
+
+Verse Display
+
+Display selected verses with formatting
+
+Support for multiple Bible versions (KJV, NIV, etc.)
+
+Search
+
+Search verses by keyword
+
+Display results with book/chapter reference
+
+Bookmarks
+
+Save favorite verses
+
+Add personal notes
+
+Dark Mode / Light Mode
+
+Offline Bible Storage
+
+SQLite database for full Bible text
+
+Daily Verse Notification (for mobile or web with PWA support)
+
+
+--------------------------------------------------------------------------------
+
+🛠️ Tools and Tech Stack:
+Frontend: Flet (Python GUI/Web framework)
+
+Backend: Local storage using SQLite
+
+Data Source: KJV/NIV Bible in SQLite format or JSON
+
+Extras:
+
+FastAPI backend (optional for sync across devices)
+
+PWA setup for mobile-like experience
+
+
+--------------------------------------------------------------------------------
+
+📅 Development Plan (Step-by-Step):
+Day 1: Setup & UI Layout
+Install Flet
+
+Create layout: dropdowns for book/chapter/verse, main display area
+
+Day 2: Load Bible Data
+Parse Bible (from SQLite or JSON)
+
+Populate dropdowns dynamically
+
+Day 3: Display Selected Verse
+Display full chapter
+
+Highlight selected verse
+
+Day 4: Add Search Function
+Implement search input and result display
+
+Day 5: Add Bookmarks & Notes
+Save favorite verses locally (SQLite or JSON)
+
+Add optional note field
+
+Day 6: Theme Toggle & UI Polish
+Add light/dark mode
+
+Polish UI with ft.Container, ft.Text, ft.Dropdown
+
+Day 7: Final Touches
+Implement daily verse logic
+
+Optimize performance and fix bugs
+
