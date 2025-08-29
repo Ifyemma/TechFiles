@@ -1,0 +1,56 @@
+import flet as ft
+
+# Store recipes in a list
+recipes = []
+
+def main(page: ft.Page):
+    page.title = "Recipe Book"
+    page.scroll = True
+
+    recipe_list = ft.Column()
+    search_input = ft.TextField(label="Search recipes...", on_change=lambda e: update_list())
+
+    title_input = ft.TextField(label="Recipe Title", width=300)
+    desc_input = ft.TextField(label="Recipe Description", multiline=True, min_lines=3, width=300)
+
+    def add_recipe(e):
+        if title_input.value and desc_input.value:
+            recipes.append({
+                "title": title_input.value,
+                "description": desc_input.value
+            })
+            title_input.value = ""
+            desc_input.value = ""
+            update_list()
+            page.update()
+
+    def update_list():
+        recipe_list.controls.clear()
+        query = search_input.value.lower()
+        for recipe in recipes:
+            if query in recipe["title"].lower():
+                recipe_list.controls.append(
+                    ft.Card(
+                        content=ft.Container(
+                            content=ft.Column([
+                                ft.Text(recipe["title"], style="titleMedium"),
+                                ft.Text(recipe["description"]),
+                            ]),
+                            padding=10,
+                        )
+                    )
+                )
+        page.update()
+
+    page.add(
+        ft.Text("Add a New Recipe", style="headlineSmall"),
+        title_input,
+        desc_input,
+        ft.ElevatedButton("Add Recipe", on_click=add_recipe),
+        ft.Divider(),
+        search_input,
+        ft.Text("Recipe List", style="headlineSmall"),
+        recipe_list
+    )
+
+ft.app(target=main)
